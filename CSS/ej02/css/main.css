@@ -1,3 +1,8 @@
+*{
+    border: 1px solid #000;/*Solo es para que podamos ver mejor el diseño pero luego hay que quitar*/
+    box-sizing:border-box; /*esto es de css3 pero es para que podamos hacerlo mas facil*/
+}
+
 html, body {
     background-color: #f7f7f7;
 }
@@ -9,6 +14,19 @@ body {
 a {
     color:#000;
     text-decoration: none;
+}
+
+ul{
+    margin: 0;
+}
+
+table{
+    width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6{
+    margin-top: 0;
 }
 
 h1, .h1{
@@ -24,6 +42,8 @@ h1, .h1{
 .small{font-size: 0.8em;}
 .big{font-size: 1.5em;}
 .uppercase{text-transform: uppercase;}
+.list{list-style: none; padding: 0;}
+.center{text-align: center;}
 
 /*Colores*/
 .txt-red{
@@ -34,11 +54,14 @@ h1, .h1{
     background-color:#FFF;
 }
 
+.list-blue{padding-left: 20px;}
 /*Cabecera*/
 /*breadcrum en mayusculas*/
 /*actual en rojo*/
 .breadcrum{
     text-transform: uppercase;
+    list-style: none;
+    padding: 0;
 }
 /*
 .breadcrum .actual,
@@ -46,3 +69,13 @@ h1, .h1{
     color:red;
 }
 */
+/*layout*/
+.wrapper{
+    width: 990px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+.fleft{float:left;}
+.col-25{width: 25%;}
+.col-50{width: 50%;}
+.col-75{width: 75%;}
