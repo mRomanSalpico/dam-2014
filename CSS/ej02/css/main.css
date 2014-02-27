@@ -1,0 +1,48 @@
+html, body {
+    background-color: #f7f7f7;
+}
+
+body {
+    font:14pt/1.48em "Source Sans Pro", sans-serif;
+    color: #464646;
+}
+a {
+    color:#000;
+    text-decoration: none;
+}
+
+h1, .h1{
+    font-size: 2em; /* 28 puntos que media el h1 dividido por los 14 puntos del tamaño fuente */
+    line-height: 1.08em; /* 30.24 entre 28pt*/
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+/* Textos */
+.bold{font-weight: bold;}
+.normal{font-weight: normal;}
+.small{font-size: 0.8em;}
+.big{font-size: 1.5em;}
+.uppercase{text-transform: uppercase;}
+
+/*Colores*/
+.txt-red{
+    color:#F00;
+}
+
+.bg-white{
+    background-color:#FFF;
+}
+
+/*Cabecera*/
+/*breadcrum en mayusculas*/
+/*actual en rojo*/
+.breadcrum{
+    text-transform: uppercase;
+}
+/*
+.breadcrum .actual,
+.menu .actual{
+    color:red;
+}
+*/
