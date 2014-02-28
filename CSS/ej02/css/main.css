@@ -1,5 +1,5 @@
 *{
-    border: 1px solid #000;/*Solo es para que podamos ver mejor el diseño pero luego hay que quitar*/
+    /*border: 1px solid #000;*//*Solo es para que podamos ver mejor el diseño pero luego hay que quitar*/
     box-sizing:border-box; /*esto es de css3 pero es para que podamos hacerlo mas facil*/
 }
 
@@ -63,7 +63,12 @@ h1, .h1{
 .center{text-align: center;}
 .list p{margin: 0;}
 .list li{padding: 20px 0;}
+.list li:first-child{padding-top: 0;}
 .list li h4{color: #03f; font-style: italic;}
+.list-blue li{
+    background: transparent url("../imagenes/bolita-azul.png") no-repeat 0 10px;
+    padding-left: 20px
+}
 
 /*Colores*/
 .txt-red{
@@ -75,7 +80,35 @@ h1, .h1{
     background-color:#FFF;
 }
 
-.list-blue{padding-left: 20px;}
+
+.price{
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+/*Botones*/
+.btn{
+    display: inline-block;
+    width: 100px;
+    padding: 5px;
+    margin: auto 5px;
+
+    color:#FFF;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+
+    border-radius: 5px;
+    box-shadow: 0 1px 5px #cdcdcd;
+    background-image: linear-gradient(to bottom, #999, #CCC);
+}
+.btn-red{
+    background-image: linear-gradient(to bottom, #f74040 80%, #d33535);
+}
+.btn-big{
+    padding: 8px inherit;
+}
+
 /*Cabecera*/
 /*breadcrum en mayusculas*/
 /*actual en rojo*/
@@ -96,14 +129,50 @@ h1, .h1{
     margin: 0 auto;
     padding: 40px 0;
 }
+.bg-gray:first-child .wrapper{
+    padding-bottom: 0;
+}
+.description{
+    padding-left: 20px;
+}
 .fleft{float:left;}
 .col-25{width: 25%;}
 .col-50{width: 50%;}
 .col-75{width: 75%;}
+.col-100{width: 100%;}
+
+.breadcrumb li{
+    display: inline-block;
+}
+.breadcrumb li:after{
+    content: "/";
+}
+
+.breadcrumb li.actual{
+    content: "";
+}
+.breadcrumb li:last-child:after{
+    content: "";
+}
+.breadcrumb a{
+    margin-right: 5px;
+}
+
+.marco{
+    background-color:#FFF;
+    padding: 10px;
+    box-shadow: 0 0 5px#cdcdcd;
+}
+marco p{
+    margin: 0;
+}
+img{
+    max-width: 100%;
+}
+
 
 /*TODO*/
 /*
-menu de arriba en lista
 botones
 tabla
 balines
