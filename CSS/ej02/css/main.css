@@ -3,6 +3,22 @@
     box-sizing:border-box; /*esto es de css3 pero es para que podamos hacerlo mas facil*/
 }
 
+.clearfix   {
+
+     zoom:  1;
+
+}
+.wrapper:before, .wrapper:after, .clearfix:before, .clearfix:after{
+    content: "";
+    display: table;
+}
+
+.wrapper:after,
+.clearfix:after{
+    clear:both;
+
+}
+
 html, body {
     background-color: #f7f7f7;
 }
@@ -38,17 +54,22 @@ h1, .h1{
 
 /* Textos */
 .bold{font-weight: bold;}
+.italyc{font-style: italic;}
 .normal{font-weight: normal;}
 .small{font-size: 0.8em;}
 .big{font-size: 1.5em;}
 .uppercase{text-transform: uppercase;}
 .list{list-style: none; padding: 0;}
 .center{text-align: center;}
+.list p{margin: 0;}
+.list li{padding: 20px 0;}
+.list li h4{color: #03f; font-style: italic;}
 
 /*Colores*/
 .txt-red{
     color:#F00;
 }
+.txt-blue{color: #00F;}
 
 .bg-white{
     background-color:#FFF;
@@ -58,13 +79,13 @@ h1, .h1{
 /*Cabecera*/
 /*breadcrum en mayusculas*/
 /*actual en rojo*/
-.breadcrum{
+.breadcrumb{
     text-transform: uppercase;
     list-style: none;
     padding: 0;
 }
 /*
-.breadcrum .actual,
+.breadcrumb .actual,
 .menu .actual{
     color:red;
 }
@@ -79,3 +100,12 @@ h1, .h1{
 .col-25{width: 25%;}
 .col-50{width: 50%;}
 .col-75{width: 75%;}
+
+/*TODO*/
+/*
+menu de arriba en lista
+botones
+tabla
+balines
+pie en linea
+*/
