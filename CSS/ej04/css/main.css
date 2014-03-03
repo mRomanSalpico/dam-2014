@@ -1,0 +1,24 @@
+li:first-child{
+    color: blue;
+}
+li:last-child{
+    color: blue;
+    font-size:5em;
+}
+li:nth-child(5n+2){
+    font-size: 2em;
+}
+li:nth-child(5n+3){
+    font-size: 3em;
+}
+li:nth-child(5n+4){
+    font-size: 4em;
+}
+}
+li::first-letter{
+    color: red;
+}
+li::selection{
+    color: yellow;
+}
+
