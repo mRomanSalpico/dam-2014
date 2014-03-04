@@ -22,17 +22,54 @@
         }
         .snowflake.f1 {
             left: 40px;
+            -webkit-animation: caida 10s infinite, fading 10s linear;
+/*            -webkit-animation-duration: 5s;
+            -webkit-animation-name: caida;
+            -webkit-animation-iteration-count: infinite;*/
         }
         .snowflake.f2 {
             font-size: 1.8em;
             left: 120px;
+            -webkit-animation: caida 8s infinite, fading 8s linear;
+/*            -webkit-animation-duration: 5s;
+            -webkit-animation-name: caida;
+            -webkit-animation-iteration-count: infinite;*/
         }
         .snowflake.f3 {
             left: 200px;
+            -webkit-animation: caida 6s infinite, fading 6s linear;
+/*            -webkit-animation-duration: 4s;
+            -webkit-animation-name: caida;
+            -webkit-animation-iteration-count: infinite;*/
         }
         .snowflake.f4 {
             font-size: 1.5em;
             left: 280px;
+            -webkit-animation: caida 9s infinite, fading 9s linear;
+/*            -webkit-animation-duration: 6s;
+            -webkit-animation-name: caida;
+            -webkit-animation-iteration-count: infinite;*/
+        }
+        @-webkit-keyframes caida {
+            from {
+                top: -5%;
+            }
+
+            to {
+                top: 100%;
+            }
+        }
+        @-webkit-keyframes fading {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+            75%{
+                opacity: 0.5;
+            }
         }
             .texto1{
                 -webkit-column-count:3;
