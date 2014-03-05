@@ -108,6 +108,9 @@ h1, .h1{
 .btn-big{
     padding: 8px inherit;
 }
+.read-more{
+    display:none;
+}
 
 /*Cabecera*/
 /*breadcrum en mayusculas*/
@@ -125,9 +128,10 @@ h1, .h1{
 */
 /*layout*/
 .wrapper{
-    width: 990px;
+    width: 90%;
+    max-width: 990px;
     margin: 0 auto;
-    padding: 40px 0;
+    padding: 4.0404040404% 0; /*40/990*/
 }
 .bg-gray:first-child .wrapper{
     padding-bottom: 0;
@@ -136,6 +140,8 @@ h1, .h1{
     padding-left: 20px;
 }
 .fleft{float:left;}
+.frigth{float:right;}
+.overflowx{overflow-x: scroll;};
 .col-25{width: 25%;}
 .col-50{width: 50%;}
 .col-75{width: 75%;}
@@ -169,12 +175,75 @@ marco p{
 img{
     max-width: 100%;
 }
+.hidden{
+    display: none;
+}
 
+@media screen and (max-width: 768px){
+    .wrapper{
+        padding: 2% 0;
+    }
+    .col-25.marco{
+        width: 40%;
+    }
+    .col-75.descripcion{
+        width: 60%;
+    }
+    .description p{
+        height: 250px;
+        overflow: hidden;
+    }
+    .read-more{
+        display: block;
+    }
+    h1, .h1{
+        font-size: 1.6em;
+        text-transform: none;
+    }
+    .marco .price{
+        float: none;
+        display: block;
+        text-align: center;
+        margin-top: 5px 0;
+    }
+    .marco .btn-big{
+        float: none;
+        display: block;
+        width: 100%;
+        margin: 0;
+    }
+    .list li h3{
+        float: none;
+        width: 100%;
+        margin-bottom:0;
+    }
+    .list li p{
+        float: none;
+        width: 100%;
+    }
+}
+@media screen and (max-width: 480px){
+     [class*="col-"]{
+        float: none;
+        width: 100%;
+        clear: both;
+    }
+   .wrapper{
+        width: 100%;
+        padding: 3%;
+    }
+    .breadcrumb{
+        float: left;
+    }
+    .navbar-toggle{
+        display: block;
+        float: right;
+    }
+    .col-25.marco{
+        width: 100%;
+    }
+    .col-75.marco{
+        width: 100%;
+    }
 
-/*TODO*/
-/*
-botones
-tabla
-balines
-pie en linea
-*/
+}
