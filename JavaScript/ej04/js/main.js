@@ -6,7 +6,7 @@ APP.validarPalindromo= (function(){
         cadena = cadena.trim().replace(/ /gi, "").toLowerCase();
         var pal =cadena.split("").reverse().join("");
         return cadena && cadena === pal;
-    }
+    };
 
     return validarPalindromo;
 
