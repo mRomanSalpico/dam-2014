@@ -14,7 +14,7 @@ APP.validador = (function(){
         return nombre && nombre.length > 0;
     };
     var validarPassword = function(password){
-        var exp =/(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{8,10})$/ /(a-z)+(A-Z)+(0-9)+/;
+        var exp =/(a-z)+(A-Z)+(0-9)+/;
 
         return password && password.length >= 6 && exp.test(password);
     };
