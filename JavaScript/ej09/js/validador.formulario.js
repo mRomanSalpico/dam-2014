@@ -63,11 +63,9 @@ HTMLFormElement.prototype.validar = function(errores){
             }
         }
 
-        console.log("conprobar:"+comprobar);
+
         if (!comprobar){
-            console.log("Errores en el formulario");
             e.preventDefault();
-            console.log(e);
         }
         return comprobar;
     };

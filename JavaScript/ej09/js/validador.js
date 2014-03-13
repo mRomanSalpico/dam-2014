@@ -14,9 +14,12 @@ APP.validador = (function(){
         return nombre && nombre.length > 0;
     };
     var validarPassword = function(password){
-        var exp =/(a-z)+(A-Z)+(0-9)+/;
 
-        return password && password.length >= 6 && exp.test(password);
+        var min =/(a-z)/;
+        var may =/(A-Z)/;
+        var num =/(0-9)/;
+
+        return password && password.length >= 6 && min.test(password) && may.test(password) && num.test(password);
     };
     var validarEmail = function(email){
         var exp = /^(\w+)((\.|-|_)?(\w+))*@(\w+)(\.\w{2,})+$/;

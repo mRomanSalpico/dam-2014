@@ -7,8 +7,8 @@ window.$ = Element.prototype.$ = function(selector){
     return (elems.length === 1) ? elems[0]: elems;
 };
 
-//window.onload = $('#registro').validar({
-$('#registro').validar({
+window.onload = $('#registro').validar({
+//$('#registro').validar({
     errorEmail : "El email es incorrecto!!!!!!!!!!!",
     errorRequired : "Datos requeridos!!!!!!!!!!!",
     errorComentario : "El comentario está fuera de rango!!!!!!!!!!!",
