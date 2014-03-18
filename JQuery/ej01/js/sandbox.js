@@ -25,7 +25,7 @@ $(document).ready(function(){ //$(function(){})
     var $img = $('img[alt]');
 
     //seleccionar todas las filas impares del cuerpo de la tabla y les cambiamos en color a gris
-    var $filas = $('tbody tr:odd').css('background-color','gray');
+    //var $filas = $('tbody tr:odd').css('background-color','gray');
 
 
     //Seleccionar todas las imágenes en la página; registrar en la consola el atributo alt de cada imagen.
