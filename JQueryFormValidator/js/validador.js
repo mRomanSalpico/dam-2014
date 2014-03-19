@@ -45,10 +45,12 @@
 
         if (this.type === "checkbox") {comprobar = this.checked;
                                         if (!comprobar){mostrarError(e.data.check);
+                                                        crearError.call(this,{ data :e.data.check});
                                                         funcionEnRojo(this.labels[0]);}
                                         else funcionEnBlanco(this.labels[0]);}
         if(!comprobar){
                 mostrarError(e.data.required);
+                crearError.call(this,{ data :e.data.required});
                 funcionEnRojo(this);
         }
         else{
@@ -61,6 +63,7 @@
         var comprobar = email(this.value);
         if(!comprobar){
                 mostrarError(e.data.email);
+                crearError.call(this,{ data :e.data.email});
                 funcionEnRojo(this);
         }
         else{
@@ -75,6 +78,7 @@
 
         if(!comprobar){
                 mostrarError(e.data.password);
+                crearError.call(this,{ data :e.data.password});
                 funcionEnRojo(this);
         }
         else{
@@ -89,6 +93,7 @@
 
         if(!comprobar){
                 mostrarError(e.data.min);
+                crearError.call(this,{ data :e.data.min});
                 funcionEnRojo(this);
         }
         else{
@@ -126,6 +131,18 @@
             console.log("faltan datos o son incorrectos!!!!!!!");
         }
     };
+
+    var crearError = function(err){
+        $this = $(this);
+        var $error = $('.'+err.data.tipo);
+        if ($error.length === 0) {
+            var $mensaje = $('<span/>',{
+                'class' : err.data.tipo,
+                'html' : err.data.error
+            });
+            $mensaje.insertAfter($this);
+        }
+    };
     //final funciones
 
 
@@ -137,10 +154,10 @@
         return this.filter('form').each(function(){
             var $this = $(this);
 
-            $this.find(':input[data-validator=required]').on('keyup', opts, validarRequerido);
-            $this.find(':input[data-validator=password]').on('keyup', opts, validarPassword);
-            $this.find(':input[data-validator=email]').on('keyup', opts, validarEmail);
-            $this.find(':input[data-validator=min]').on('keyup', opts, validarMin);
+            $this.find(':input[data-validator=required]').on('blur', opts, validarRequerido);
+            $this.find(':input[data-validator=password]').on('blur', opts, validarPassword);
+            $this.find(':input[data-validator=email]').on('blur', opts, validarEmail);
+            $this.find(':input[data-validator=min]').on('blur', opts, validarMin);
             $this.on('submit', opts, validarFormulario);
 
         });
@@ -149,24 +166,29 @@
     //defaults
     $.fn.formValidator.defaults = {
         'required' : {
-            'error' : 'Datos requeridos!!!!!!!!!!!'
+            'error' : 'Datos requeridos!!',
+            'tipo' : 'required'
 
         },
         'email' : {
-            'error' : 'El email es incorrecto!!!!!!!!!!!'
+            'error' : 'El email es incorrecto!!',
+            'tipo' : 'email'
 
         },
         'password' : {
-            'error' : 'El password es incorrecto!!!!!!!!!!!'
+            'error' : 'El password es incorrecto!!',
+            'tipo' : 'password'
 
         },
         'min' : {
-            'error' : 'El comentario está fuera de rango!!!!!!!!!!!',
-            'size' : 50
+            'error' : 'El comentario está fuera de rango!!',
+            'size' : 50,
+            'tipo' : 'min'
 
         },
         'check' : {
-            'error' : 'Acepta las condiciones!!!!!!!!'
+            'error' : 'Acepta las condiciones!!',
+            'tipo' : 'check'
 
         }
     };
