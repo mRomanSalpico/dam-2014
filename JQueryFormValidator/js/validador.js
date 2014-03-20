@@ -152,13 +152,13 @@
         var opts = $.extend({}, $.fn.formValidator.defaults, options);
 
         return this.filter('form').each(function(){
-            var $this = $(this);
+            var $form = $(this);
 
-            $this.find(':input[data-validator=required]').on('blur', opts, validarRequerido);
-            $this.find(':input[data-validator=password]').on('blur', opts, validarPassword);
-            $this.find(':input[data-validator=email]').on('blur', opts, validarEmail);
-            $this.find(':input[data-validator=min]').on('blur', opts, validarMin);
-            $this.on('submit', opts, validarFormulario);
+            $form.find(':input[data-validator=required]').on('keyup', opts, validarRequerido);
+            $form.find(':input[data-validator=password]').on('keyup', opts, validarPassword);
+            $form.find(':input[data-validator=email]').on('keyup', opts, validarEmail);
+            $form.find(':input[data-validator=min]').on('keyup', opts, validarMin);
+            $form.on('submit', opts, validarFormulario);
 
         });
     };
