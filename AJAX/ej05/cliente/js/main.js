@@ -13,7 +13,6 @@ $(function(){
             type : 'POST',
             dataType : 'json',
             success : function(data, textStatus, jqXHR){
-                console.log(data);
                 for(var prop in data){
                     $disponibilidad.text(prop + ' : ' + data[prop]);
                 }

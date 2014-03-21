@@ -17,14 +17,14 @@ $(function(){
 
         $.ajax({ url : recurso,
                 data : {data : $this.val()},
-                dataType: 'html',
+                dataType: 'text',
                 cache : false,
                 success: function(data, textStatus, jqXHR){
                     $contenidos.text(data);
                     //poner las cabeceras
-                    $cabeceras.text($(data).find('h2').text());
+                    $cabeceras.text(jqXHR.getAllResponseHeaders);
                     //escribir el estado
-                    $codigo.text(jqXHR.status + ' ' +textStatus);
+                    $codigo.text(jqXHR.status + ' ' +jqXHR.textStatus);
                 },
                 error : function(jqXHR, textStatus, errorThrown){
                     $codigo.text(textStatus);

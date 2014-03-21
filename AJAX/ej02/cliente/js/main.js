@@ -11,7 +11,7 @@ $(function(){
     {
         $.ajax({ url : '../servidor/generaContenidos.php',
                 data : {data : $this.val()},
-                dataType: 'html',
+                dataType: 'text',
                 cache : false,
                 success: function(data, textStatus, jqXHR){
                     var fecha = new Date();

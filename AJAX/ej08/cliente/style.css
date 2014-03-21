@@ -1,0 +1,83 @@
+/*
+El diseño del teclado es obra de Chris Hester y se puede descargar desde http://www.designdetector.com/archives/05/03/KeyboardDemo.php
+*/
+
+body, html { padding:0; margin:0; }
+
+p { font-family: verdana,sans-serif; font-size:13px; margin-left:10px; }
+
+#keyboard { padding:30px 8px 8px 8px; margin:5px 0 0 0; height:300px; width:1000px; background-color:#eee; border-top:3px solid #ccc; border-right:3px solid #aaa; border-bottom:5px solid #888; border-left:3px solid #bbb; }
+
+kbd, .tecla {
+font-family: verdana,sans-serif;
+font-size:13px;
+border-top:2px solid #ccc;
+border-right:5px solid #aaa;
+border-bottom:9px solid #888;
+border-left:5px solid #bbb;
+padding:3px 6px 3px 6px;
+white-space:nowrap;
+color:#000;
+background:#eee;
+width:22px;
+height:30px;
+float:left;
+overflow:hidden;
+cursor: pointer; cursor: hand;
+}
+
+.delete {padding:3px 8px 3px 4px;}
+img {margin-top:2px;}
+.narrow, .lock { font-family:arial,helvetica,sans-serif; font-size:9px; }
+
+#keyboard div, .clear { clear:both; margin:0; }
+
+.fontgap {margin-left:10px;}
+.rightgap {margin-right:12px;}
+#esc, #f4, #f8 {margin-right:30px;}
+
+#row1 { margin-bottom:12px; width:990px; height:50px; }
+
+/* wide keys */
+
+.tab {width:48px;}
+.capslock {width:62px;}
+.shift-right {width:98px; margin-right:56px;}
+.backspace {width:68px;}
+.spacebar {width:234px;}
+.numpad-0 {width:66px;}
+
+.shift-left, #ctrl-left, #ctrl-right, #windows-left, #windows-right, #alt-left, .alt-right, #application {width:36px;}
+
+.enter-top { border-bottom:0; height:39px; width:42px; }
+#enter-bottom { border-top:0; height:32px; width:28px; margin-right:156px; }
+
+.numpad-top { border-bottom:0; height:10px; padding-top:32px;}
+.numpad-bottom { border-top:0; height:32px; }
+#arrow-up {margin-right:56px;}
+#sysreq, #break { font-family:'arial narrow'; font-size:10px; position:absolute; top:72px; left:696px; z-index:2; }
+#break {left:785px;}
+.lock { margin-left:30px; margin-top:25px; float:left;}
+#enter-edge { position:absolute; top:183px; left:609px; z-index:2; }
+
+#led-active, #led2, #led3 {
+position:absolute;
+top:40px;
+left:850px;
+width:6px;
+height:6px;
+margin-left:5px;
+border-top:2px solid #888;
+border-right:2px solid #bbb;
+border-bottom:2px solid #ccc;
+border-left:2px solid #aaa;
+background-color:#6f0;
+}
+#led2 {left:900px; background-color:#060;}
+#led3 {left:950px; background-color:#060;}
+
+
+.pulsada { background: #FFFF99; border-top-width:5px; border-bottom-width: 6px;}
+.enter-top.pulsada {border-bottom: none; border-top-width:2px;}
+
+#contenido, #contenidoGuardado { margin: 10px; background-color: #ededed; border: 2px solid #a0a0a0; padding: 1em;}

@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Ejercicio 8 - Teclado virtual</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="util.js"></script>
+	<script type="text/javascript" src="code.js"></script>
+</head>
+
+<body>
+
+	<div id="led-active">&nbsp;</div>
+	<div id="led2">&nbsp;</div>
+	<div id="led3">&nbsp;</div>
+
+	<div id="keyboard">
+
+		<div id="row1">
+			<kbd id="esc">Esc</kbd>
+			<kbd>F1</kbd>
+			<kbd>F2</kbd>
+			<kbd>F3</kbd>
+			<kbd id="f4">F4</kbd>
+			<kbd>F5</kbd>
+			<kbd>F6</kbd>
+			<kbd>F7</kbd>
+			<kbd id="f8">F8</kbd>
+			<kbd>F9</kbd>
+			<kbd>F10</kbd>
+			<kbd>F11</kbd>
+			<kbd class="rightgap">F12</kbd>
+			<kbd class="narrow">
+				Impr
+				<br>Pant</kbd>
+			<kbd class="narrow">
+				Bloq
+				<br>Des</kbd>
+			<kbd class="narrow">Pausa</kbd>
+			<span class="lock">
+				Bloq
+				<br>Num</span>
+			<span class="lock">
+				Bloq
+				<br>Mayus</span>
+			<span class="lock">
+				Bloq
+				<br>Des</span>
+		</div>
+
+		<div id="row2">
+			<kbd id="tecla_0"></kbd>
+			<kbd id="tecla_1"></kbd>
+			<kbd id="tecla_2"></kbd>
+			<kbd id="tecla_3"></kbd>
+			<kbd id="tecla_4"></kbd>
+			<kbd id="tecla_5"></kbd>
+			<kbd id="tecla_6"></kbd>
+			<kbd id="tecla_7"></kbd>
+			<kbd id="tecla_8"></kbd>
+			<kbd id="tecla_9"></kbd>
+			<kbd id="tecla_10"></kbd>
+			<kbd id="tecla_11"></kbd>
+			<kbd id="tecla_12"></kbd>
+			<kbd id="tecla_especial_borrado" class="rightgap backspace">
+				<img src="images/backspace.gif" alt="" height="19" width="52"></kbd>
+			<kbd class="narrow">Insert</kbd>
+			<kbd class="narrow">Inicio</kbd>
+			<kbd class="narrow rightgap">
+				Re
+				<br>Pag</kbd>
+			<kbd class="narrow">
+				Bloq
+				<br>Num</kbd>
+			<kbd>/</kbd>
+			<kbd>*</kbd>
+			<kbd>-</kbd>
+		</div>
+
+		<div>
+			<kbd id="tecla_especial_tabulador" class="tab">
+				<img src="images/tab.gif" alt="" height="27" width="23"></kbd>
+			<kbd id="tecla_13"></kbd>
+			<kbd id="tecla_14"></kbd>
+			<kbd id="tecla_15"></kbd>
+			<kbd id="tecla_16"></kbd>
+			<kbd id="tecla_17"></kbd>
+			<kbd id="tecla_18"></kbd>
+			<kbd id="tecla_19"></kbd>
+			<kbd id="tecla_20"></kbd>
+			<kbd id="tecla_21"></kbd>
+			<kbd id="tecla_22"></kbd>
+			<kbd id="tecla_23"></kbd>
+			<kbd id="tecla_24"></kbd>
+			<kbd id="tecla_especial_enter" class="rightgap enter-top">
+				<img src="images/enter.gif" alt="" height="24" width="24"></kbd>
+			<kbd class="narrow delete">Supr</kbd>
+			<kbd class="narrow">Fin</kbd>
+			<kbd class="narrow rightgap">
+				Av
+				<br>Pag</kbd>
+			<kbd>
+				7
+				<br>
+				<span class="narrow">Inicio</span>
+			</kbd>
+			<kbd>
+				8
+				<br>
+				<img src="images/arrow-up-small.gif" alt="" height="13" width="21"></kbd>
+			<kbd>
+				9
+				<br>
+				<span class="narrow">RePag</span>
+			</kbd>
+			<kbd class="numpad-top">+</kbd>
+		</div>
+
+		<div>
+			<kbd id="tecla_especial_mayusculas" class="narrow capslock">Bloq Mayus</kbd>
+			<kbd id="tecla_25"></kbd>
+			<kbd id="tecla_26"></kbd>
+			<kbd id="tecla_27"></kbd>
+			<kbd id="tecla_28"></kbd>
+			<kbd id="tecla_29"></kbd>
+			<kbd id="tecla_30"></kbd>
+			<kbd id="tecla_31"></kbd>
+			<kbd id="tecla_32"></kbd>
+			<kbd id="tecla_33"></kbd>
+			<kbd id="tecla_34"></kbd>
+			<kbd id="tecla_35"></kbd>
+			<kbd id="tecla_36"></kbd>
+			<kbd id="enter-bottom">&nbsp;</kbd>
+			<kbd>
+				4
+				<br>
+				<img src="images/arrow-left-small.gif" alt="" height="7" width="13"></kbd>
+			<kbd>5</kbd>
+			<kbd>
+				6
+				<br>
+				<img src="images/arrow-right-small.gif" alt="" height="7" width="13"></kbd>
+			<kbd class="numpad-bottom">&nbsp;</kbd>
+		</div>
+
+		<div>
+			<kbd id="tecla_especial_shift_izquierdo" class="narrow shift-left">
+				<img src="images/shift.gif" alt="" height="20" width="17"></kbd>
+			<kbd>
+				&gt;
+				<br>&lt;</kbd>
+			<kbd id="tecla_37"></kbd>
+			<kbd id="tecla_38"></kbd>
+			<kbd id="tecla_39"></kbd>
+			<kbd id="tecla_40"></kbd>
+			<kbd id="tecla_41"></kbd>
+			<kbd id="tecla_42"></kbd>
+			<kbd id="tecla_43"></kbd>
+			<kbd id="tecla_44"></kbd>
+			<kbd id="tecla_45"></kbd>
+			<kbd id="tecla_46"></kbd>
+			<kbd id="tecla_especial_shift_derecho" class="shift-right">
+				<img src="images/shift.gif" alt="" height="20" width="17"></kbd>
+			<kbd id="arrow-up">
+				<img src="images/arrow-up.gif" alt="" height="22" width="21"></kbd>
+			<kbd>
+				1
+				<br>
+				<span class="narrow">Fin</span>
+			</kbd>
+			<kbd>
+				2
+				<br>
+				<img src="images/arrow-down-small.gif" alt="" height="13" width="21"></kbd>
+			<kbd>
+				3
+				<br>
+				<span class="narrow">AvPag</span>
+			</kbd>
+			<kbd class="numpad-top narrow">Enter</kbd>
+		</div>
+
+		<div>
+			<kbd id="ctrl-left" class="narrow">Ctrl</kbd>
+			<kbd id="windows-left">
+				<img src="images/windows-key.gif" alt="Windows Key" height="13" width="16"></kbd>
+			<kbd id="alt-left" class="narrow">Alt</kbd>
+			<kbd id="tecla_especial_espaciadora" class="spacebar">&nbsp;</kbd>
+			<kbd  id="tecla_especial_altgr" class="narrow alt-right">Alt Gr</kbd>
+			<kbd id="windows-right">
+				<img src="images/windows-key.gif" alt="" height="13" width="16"></kbd>
+			<kbd id="application">
+				<img src="images/windows-application-key.gif" alt="" height="13" width="12"></kbd>
+			<kbd id="ctrl-right" class="narrow rightgap">Ctrl</kbd>
+			<kbd>
+				<img src="images/arrow-left.gif" alt="" height="19" width="21"></kbd>
+			<kbd>
+				<img src="images/arrow-down.gif" alt="" height="22" width="21"></kbd>
+			<kbd class="rightgap">
+				<img src="images/arrow-right.gif" alt="" height="19" width="21"></kbd>
+			<kbd class="numpad-0" id="_0">
+				0
+				<br>
+				<span class="narrow">Ins</span>
+			</kbd>
+			<kbd>
+				.
+				<br>
+				<span class="narrow">Supr</span>
+			</kbd>
+			<kbd class="numpad-bottom">&nbsp;</kbd>
+		</div>
+
+	</div>
+
+	<select id="idiomas">
+		<option>Cargando...</option>
+	</select>
+
+	<div id="contenido"></div>
+
+	<p>Contenido en el servidor [se actualiza automáticamente]</p>
+	<div id="contenidoGuardado"></div>
+
+	<p style="font-size:.9em;color:#888;margin-top:2em;">
+		&copy; El diseño del teclado es obra de Chris Hester y se puede descargar desde http://www.designdetector.com/archives/05/03/KeyboardDemo.php
+	</p>
+</body>
+
+</html>
