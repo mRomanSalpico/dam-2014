@@ -19,42 +19,45 @@
 
   </header>
 
-<br>
-<label for="email">Email: </label><input id="email" type="email">
-<br>
-<label for="url">Url: </label><input id="url" type="url">
-<br>
-<label for="date">Fecha: </label><input id="date" type="date">
-<br>
-<label for="time">Hora: </label><input id="time" type="time">
-<br>
-<label for="datetime">Fecha/hora: </label><input id="datetime" type="datetime">
-<br>
-<label for="month">Mes: </label><input id="month" type="month">
-<br>
-<label for="week">Semana: </label><input id="week" type="week">
-<br>
-<label for="number">Numero: </label><input id="number" type="number">
-<br>
-<label for="range">Rango: </label><input id="range" type="range">
-<br>
-<label for="tel">Telefono: </label><input id="tel" type="tel">
-<br>
-<label for="search">Busqueda: </label><input id="search" type="search">
-<br>
-<label for="color">Color: </label><input id="color" type="color">
-<br>
+  <form id="ejercicio">
 
-<label for="provincias">Provincias: </label><input id="provincias" type="text" list="lista">
-<datalist id="lista">
-  <option label="Alava" value="Alava"></option>
-  <option label="Gipuzkoa" value="Gipuzkoa"></option>
-  <option label="Navarra" value="Navarra"></option>
-</datalist>
+    <br>
+    <label for="email">Email: </label><input id="email" type="email">
+    <label for="url">Url: </label><input id="url" type="url">
+    <label for="date">Fecha: </label><input id="date" type="date">
+    <label for="time">Hora: </label><input id="time" type="time">
+    <label for="datetime">Fecha/hora: </label><input id="datetime" type="datetime">
+    <label for="month">Mes: </label><input id="month" type="month">
+    <label for="week">Semana: </label><input id="week" type="week">
+    <label for="number">Numero: </label><input id="number" type="number">
+    <label for="range">Rango: </label><input id="range" type="range">
+    <label for="tel">Telefono: </label><input id="tel" type="tel">
+    <label for="search">Busqueda: </label><input id="search" type="search">
+    <label for="color">Color: </label><input id="color" type="color">
 
+    <label for="provincias">Provincias: </label><input id="provincias" type="text" list="lista">
+    <datalist id="lista">
+      <option label="Alava" value="Alava"></option>
+      <option label="Gipuzkoa" value="Gipuzkoa"></option>
+      <option label="Navarra" value="Navarra"></option>
+    </datalist>
 
+    <label for="autofocus">Autofocus: </label><input id="autofocus" type="text" autofocus placeholder="introduce texto" required="true" autocomplete="true">
 
+    <label for="number">Numero: </label><input id="number" type="number" min="0" max="10">
 
+    <label for="file">Fichero: </label><input id="file" type="file" multiple>
+
+    <label for="password">Password: </label><input id="password" type="password" pattern="[0-9][a-zA-Z0-9]{6}[A-Z]">
+
+    <label for="progress">Progress: </label><progress id="progress" value="0" max="18"></progress>
+
+    <label for="meter">Meter: </label><meter id ="meter" max="1000" high="800" value="900"></meter>
+
+  <br>
+    <input type="submit" value="Enviar" />
+
+  </form>
   <footer>
 
 

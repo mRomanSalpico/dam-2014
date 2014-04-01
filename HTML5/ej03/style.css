@@ -20,3 +20,4 @@ time{float:right;font-size:small;margin:2px 0 0 0}
 nav ul{margin:0;padding:0 1em 0 0;text-align:center}
 nav li{display:inline;padding-left:1em}
 section:after{content:'\00A7';display:block;text-align:center}
+input, meter, progress {display: block;}
