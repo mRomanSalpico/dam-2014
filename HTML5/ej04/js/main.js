@@ -28,5 +28,9 @@ console.log(Modernizr);
         $ul.append('<li>Codec: ' + codec + ' ----  Valor: ' + Modernizr.video[codec] +'</li>');
 
     }
+    Modernizr.load({
+        test:Modernizr.inputtypes.date,
+        nope:'js/datepolyfill.js'
+    });
 
 });
