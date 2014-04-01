@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="robots" content="noindex" />
+  <title>Nuevos elementos de HTML5</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="alternate" type="application/atom+xml" title="My Weblog feed" href="/feed/" />
+  <link rel="search" type="application/opensearchdescription+xml" title="My Weblog search" href="opensearch.xml" />
+  <script src="libs/modernizr.custom.js"></script>
+</head>
+
+<body>
+
+  <header>
+
+      <h1>Nuevos elementos de HTML5</h1>
+
+  </header>
+
+  <form id="ejercicio">
+
+    <br>
+    <label for="email">Email: </label><input id="email" type="email">
+    <label for="url">Url: </label><input id="url" type="url">
+    <label for="date">Fecha: </label><input id="date" type="date">
+    <label for="time">Hora: </label><input id="time" type="time">
+    <label for="datetime">Fecha/hora: </label><input id="datetime" type="datetime">
+    <label for="month">Mes: </label><input id="month" type="month">
+    <label for="week">Semana: </label><input id="week" type="week">
+    <label for="number">Numero: </label><input id="number" type="number">
+    <label for="range">Rango: </label><input id="range" type="range">
+    <label for="tel">Telefono: </label><input id="tel" type="tel">
+    <label for="search">Busqueda: </label><input id="search" type="search">
+    <label for="color">Color: </label><input id="color" type="color">
+
+    <label for="provincias">Provincias: </label><input id="provincias" type="text" list="lista">
+    <datalist id="lista">
+      <option label="Alava" value="Alava"></option>
+      <option label="Gipuzkoa" value="Gipuzkoa"></option>
+      <option label="Navarra" value="Navarra"></option>
+    </datalist>
+
+    <label for="autofocus">Autofocus: </label><input id="autofocus" type="text" autofocus placeholder="introduce texto" required="true" autocomplete="true">
+
+    <label for="number">Numero: </label><input id="number" type="number" min="0" max="10">
+
+    <label for="file">Fichero: </label><input id="file" type="file" multiple>
+
+    <label for="password">Password: </label><input id="password" type="password" pattern="[0-9][a-zA-Z0-9]{6}[A-Z]">
+
+    <label for="progress">Progress: </label><progress id="progress" value="0" max="18"></progress>
+
+    <label for="meter">Meter: </label><meter id ="meter" max="1000" high="800" value="900"></meter>
+
+  <br>
+    <input type="submit" value="Enviar" />
+
+  </form>
+  <ul id="datos"></ul>
+  <footer>
+
+
+  </footer>
+<script src="libs/jquery-1.7.2.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
