@@ -1,7 +1,7 @@
 $(function(){
     'use strict';
 
-        var $progress = $('#progress');
+    var $progress = $('#progress');
 
     $(document).on('change', 'input', function(e){
         var $this = $(this);
