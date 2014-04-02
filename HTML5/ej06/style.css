@@ -1,0 +1,21 @@
+input{width: 90px}
+
+#video {
+
+ width: 500px;
+
+}
+
+#video:full-screen {
+
+ width: 100%;
+
+}
+
+#video:full-screen img {
+
+ width: 100%;
+
+}
+
+
