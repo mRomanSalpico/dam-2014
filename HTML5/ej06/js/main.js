@@ -27,7 +27,7 @@ $(function(){
         video.currentTime=video.duration;
     });
     $(document).on('click', '#pantalla', function(e){
-        if (video.requestFullScreen ) video.requestFullScreen();
+        if (video.requestFullscreen ) video.requestFullscreen();
         else if (video.msRequestFullScreen ) video.msRequestFullScreen();
         else if (video.mozRequestFullScreen ) video.mozRequestFullScreen();
         else video.webkitRequestFullScreen();
