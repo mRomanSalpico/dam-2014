@@ -18,7 +18,8 @@ $(document).ready(function() {
                 center: latlng,
                 mapTypeControl: false,
                 navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
-                mapTypeId: google.maps.MapTypeId.ROADMAP
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                enableHighAccuracy: true
             };
             var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
 
@@ -32,6 +33,8 @@ $(document).ready(function() {
                              " Latitud: "+position.coords.latitude +
                              " Longitud: "+  position.coords.longitude +
                              " Altitud: "+  position.coords.altitude +
+                             " altitudeAccuracy: "+  position.coords.altitudeAccuracyheading +
+                             " heading: "+  position.coords.heading +
                              " velocidad: "+ position.coords.speed;
 
         });
