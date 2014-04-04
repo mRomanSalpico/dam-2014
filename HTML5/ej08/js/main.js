@@ -27,7 +27,7 @@ function handleStorage(event) {
     texto2.value=localStorage.getItem('texto2');
  }
 }
-window.addEventListener('storage', handleStorage, false); //esto funciona en Chrome
-//window.attachEvent('onstorage', handleStorage); // Esto para explorer
+if (window.addEventListener) window.addEventListener("storage", handleStorage, false); //esto funciona en Chrome
+else window.attachEvent("onstorage", handleStorage);
 
 });
