@@ -1,0 +1,21 @@
+[
+    {
+    "id" : "00001",
+    "nombre" : "Manuel",
+    "imagen" : ""
+    },
+    {
+    "id" : "00002",
+    "nombre" : "Pedro",
+    "imagen" : ""
+    },
+    {
+    "id" : "00003",
+    "nombre" : "Jose",
+    "imagen" : ""
+    },    {
+    "id" : "00004",
+    "nombre" : "Juan",
+    "imagen" : ""
+    }
+]
