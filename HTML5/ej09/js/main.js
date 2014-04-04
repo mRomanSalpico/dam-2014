@@ -61,12 +61,12 @@ $(function() {
     var db = openDatabase('tweetdb', '1.0', 'All my tweets', 2 * 1024 * 1024);
 
     db.transaction(function (tx) {
-        tx.executeSql('DROP TABLE users', []);
+        //tx.executeSql('DROP TABLE users', []);
         tx.executeSql('CREATE TABLE IF NOT EXISTS users(id PRIMARY KEY, nombre, imagen)', [], getUsers);
     });
 
     db.transaction(function (tx) {
-        tx.executeSql('DROP TABLE tweets', []);
+        //tx.executeSql('DROP TABLE tweets', []);
         tx.executeSql('CREATE TABLE IF NOT EXISTS tweets(id PRIMARY KEY, user, date, text)', [], getTweets);
     });
 
