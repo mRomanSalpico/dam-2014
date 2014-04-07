@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>WebWorkers</title>
+    </head>
+    <body>
+
+    <h1>WebWorkers</h1>
+
+    <p>Introduce un numero entero mayor que 1: <input id="numero" type="text">
+    <button onclick="calcular()">Calcular</button></p>
+
+	<button onclick="stop()">Stop worker</button>
+
+    <p>Tiempo empleado: <input id="tiempo" type="text"></p>
+    <br>
+	<output id="result"></output>
+
+	<script>
+        function calcular() {
+            var numero = document.getElementById('numero');
+            worker.postMessage({'cmd': 'calcular', 'msg': numero.value });}
+
+		function stop() { worker.postMessage({'cmd': 'stop', 'msg': 'Bye'});}
+
+		var worker = new Worker('doWork.js');
+		worker.addEventListener('message', function(e) {
+			document.getElementById('result').textContent = e.data.primos;
+            document.getElementById('tiempo').value = e.data.tiempo;
+
+		}, false);
+	</script>
+    </body>
+</html>

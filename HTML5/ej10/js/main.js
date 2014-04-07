@@ -64,7 +64,8 @@ request.onupgradeneeded = function(event) {
         var requestget = store.index("text").get(tarea);
         requestget.onsuccess = function(e) {
             var result = e.target.result;
-            var request = store.delete(result.value);
+            console.log(result);
+            var request = store.delete(result.identificador);
         };
         request.onsuccess = function(e) {
             console.log("Se ha borrado: "+e);
