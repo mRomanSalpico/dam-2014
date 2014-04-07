@@ -2,125 +2,146 @@ $(function() {
 
 
 //hacer comprobaciones sobre si se puede usar indexedDB en el navegador
-window.indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB;
+window.indexedDB = window.indexedDB || window.mozIndexedDB ||
+ window.webkitIndexedDB || window.msIndexedDB;
+
 if ('webkitIndexedDB' in window) {
-window.IDBTransaction = window.webkitIDBTransaction;
-window.IDBKeyRange = window.webkitIDBKeyRange;
+window.IDBTransaction = window.IDBTransaction ||
+ window.webkitIDBTransaction || window.msIDBTransaction;
+window.IDBKeyRange = window.IDBKeyRange ||
+ window.webkitIDBKeyRange || window.msIDBKeyRange;
+
+}
+
+function onerror(e) {
+    console.log(e);
 }
 
 //creamos la base de datos
-var request = indexedDB.open('tareas');
+version = '2';
+var request = indexedDB.open('pendientes',version);
 request.onerror = function () {
     console.log('failed to open indexedDB');
 };
-var db = null, version = '0.1';
+var db = null;
 request.onsuccess = function (event) { //una vez creada la BD hay que crear los objetos de la base de datos
+    db=event.target.result;
+};
+request.onupgradeneeded = function(event) {
     db = event.target.result;
-    if (version != db.version) { // primero controlamos la version
-        // set the version to 0.1
-        var verRequest = db.setVersion(version);
-        verRequest.onsuccess = function (event) { //aquí se crean los objetos de la base de datos
-            var store = db.createObjectStore('pendientes', { //se crea un identificador unico autoincrementable
-            keyPath: 'identificador',
-            autoIncrement: true
-            });
-
-            // now we're ready to create the object store!
-        };
-        verRequest.onerror = function () {
-            alert('unable to set the version :' + version);
-        };
-    }
+    if(db.objectStoreNames.contains('pendientes')) db.deleteObjectStore('pendientes');
+    var store = db.createObjectStore('pendientes', { //se crea un identificador unico autoincrementable
+                keyPath: 'identificador',
+                autoIncrement: false
+                });
+    store.createIndex('text', 'text', { unique: false });
 };
 
-    function addTweet(tweet){
-         db.transaction(function (tx) { //CADA TWEET EN UNA TRANSACCION → Procesa todas
-            var time = (new Date(Date.parse(tweet.created_at))).getTime();
-            tx.executeSql('INSERT INTO tweets (id, user, date, text) VALUES (?, ?, ?, ?)',
-            [tweet.id, tweet.user, time / 1000, tweet.text]);
 
-            var users  = tx.executeSql('SELECT * FROM users WHERE users.id = ?',
-            [tweet.user], function(tx, results) {
-                console.log(results);
-                            if (results && results.rows.length===0)
-                                tx.executeSql('INSERT INTO users (id, nombre, imagen) VALUES (?, ?, ?)',
-                                [tweet.user, "usuario desconocido", ""]);
+    function addTask(tarea){ //Funcion de añadir una tarea
+        var transaction = db.transaction(['pendientes'], 'readwrite');
+        var store = transaction.objectStore('pendientes');
+        var data = {
+            "text": tarea,
+            "identificador": new Date().getTime(),
+            "completada": false,
+            "fecha": new Date().getTime()
+        };
+        var request = store.add(data);
 
-            });
+        request.onsuccess = function(e) {
+            console.log("Se ha añadido: "+e);
+        };
 
-
-         });
-
+        request.onerror = function(e) {
+            console.log("Error añadiendo: ", e);
+        };
     }
 
-    function addUser(user){
-         db.transaction(function (tx) { //CADA TWEET EN UNA TRANSACCION → Procesa todas
-            tx.executeSql('INSERT INTO users (id, nombre, imagen) VALUES (?, ?, ?)',
-            [user.id, user.nombre, user.imagen]);
-         });
+    function removeTask(tarea){ //Funcion de borrar una tarea
+        var transaction = db.transaction(['pendientes'], 'readwrite');
+        var store = transaction.objectStore('pendientes');
+        var requestget = store.index("text").get(tarea);
+        requestget.onsuccess = function(e) {
+            var result = e.target.result;
+            var request = store.delete(result.value);
+        };
+        request.onsuccess = function(e) {
+            console.log("Se ha borrado: "+e);
+        };
 
+        request.onerror = function(e) {
+            console.log("Error borrando: ", e);
+        };
+        return requestget;
     }
 
-    function getTweets() {
-         var tweets = $.ajax({ url : 'data/tweets.json',
-                                dataType: 'json',
-                                cache : false,
-                                success: function(data, textStatus, jqXHR){
-                                    for (var i = 0; i < data.length; i++) {
-                                        addTweet(data[i]);
-                                    }
-                                },
-                                error : function(jqXHR, textStatus, errorThrown){
-                                    console.log(errorThrown);
-                                }
-            });
+    function updateTask(identificador){ //Funcion de actualizar una tarea
+        var transaction = db.transaction(['pendientes'], 'readwrite');
+        var store = transaction.objectStore('pendientes');
+        var requestget = store.get(identificador);
+        requestget.onsuccess = function(e) {
+            var result = e.target.result;
+            result.text="Tarea modificada";
+            resulr.fecha=new Date().getTime();
+            var request = store.put(result);
+        };
     }
 
-    function getUsers() {
-         var tweets = $.ajax({ url : 'data/users.json',
-                                dataType: 'json',
-                                cache : false,
-                                success: function(data, textStatus, jqXHR){
-                                    for (var i = 0; i < data.length; i++) {
-                                        addUser(data[i]);
-                                    }
-                                },
-                                error : function(jqXHR, textStatus, errorThrown){
-                                    console.log(errorThrown);
-                                }
-            });
+    function getAllTaskCompleted(completada) {
 
+        var transaction = db.transaction(["pendientes"]);
+        var store = transaction.objectStore("pendientes");
+
+        var cursorRequest = store.openCursor();
+
+        var html = [];
+        cursorRequest.onsuccess = function(e) {
+            var result = e.target.result;
+            if(result === false) return;
+            if (result) {
+            if (result.completada === completada)
+            html.push('<li> Tarea: ' + result.value.text +'    --- Completada:  ' + result.value.completada +'</li>');
+            result.continue();
+            }
+
+        };
+
+        cursorRequest.onerror = onerror;
     }
-    var db = openDatabase('tweetdb', '1.0', 'All my tweets', 2 * 1024 * 1024);
 
-    db.transaction(function (tx) {
-        //tx.executeSql('DROP TABLE users', []);
-        tx.executeSql('CREATE TABLE IF NOT EXISTS users(id PRIMARY KEY, nombre, imagen)', [], getUsers);
-    });
+    function getAllTask() {
 
-    db.transaction(function (tx) {
-        //tx.executeSql('DROP TABLE tweets', []);
-        tx.executeSql('CREATE TABLE IF NOT EXISTS tweets(id PRIMARY KEY, user, date, text)', [], getTweets);
-    });
+        var transaction = db.transaction(["pendientes"]);
+        var store = transaction.objectStore("pendientes");
 
+        var cursorRequest = store.openCursor();
 
-    var tweetEl = document.getElementById('tweets');
-    $(document).on('click', '#mostrar', function(e){
-         db.transaction(function (tx) {
-             tx.executeSql('SELECT * FROM tweets inner join users WHERE tweets.user = users.id', [],
-             function(tx, results) {
-                 var html = [], len = results.rows.length;
-                 for (var i = 0; i < len; i++) {
-                     html.push('<li> Usuario: ' + results.rows.item(i).nombre +'    --- Texto:  ' + results.rows.item(i).text +'</li>');
-                 }
-                 tweetEl.innerHTML = html.join('');
-             });
-         });
-    });
+        var html = [];
+        cursorRequest.onsuccess = function(e) {
+            var tareas = document.getElementById("tareas");
+            var result = e.target.result;
+            if (result) {
+                html.push('<li> Tarea: ' + result.value.text +'    --- Completada:  ' + result.value.completada +'</li>');
+                result.continue();
+            }
+            tareas.innerHTML = html.join('');
+        };
 
+        cursorRequest.onerror = onerror;
+    }
+$(document).on('click', '#mostrar',function(e){
+    getAllTask();
+});
+$(document).on('click', '#nueva',function(e){
+    var tarea = document.getElementById("tarea");
+    addTask(tarea.value);
+});
+$(document).on('click', '#eliminar',function(e){
+    var tarea = document.getElementById("tarea");
 
-
-
-
+    var borrada = removeTask(tarea.value);
+    console.log(borrada);
+});
 
 });
