@@ -49,9 +49,7 @@ request.onupgradeneeded = function(event) {
         };
         var request = store.add(data);
 
-        request.onsuccess = function(e) {
-            console.log("Se ha añadido: "+e);
-        };
+        request.onsuccess = getAllTask;
 
         request.onerror = function(e) {
             console.log("Error añadiendo: ", e);
@@ -66,6 +64,7 @@ request.onupgradeneeded = function(event) {
             var result = e.target.result;
             console.log(result);
             var request = store.delete(result.identificador);
+            request.onsuccess = getAllTask;
         };
         request.onsuccess = function(e) {
             console.log("Se ha borrado: "+e);
@@ -139,7 +138,7 @@ $(document).on('click', '#nueva',function(e){
     addTask(tarea.value);
 });
 $(document).on('click', '#eliminar',function(e){
-    var tarea = document.getElementById("tarea");
+    var tarea = document.getElementById("tareaEliminar");
 
     var borrada = removeTask(tarea.value);
     console.log(borrada);
