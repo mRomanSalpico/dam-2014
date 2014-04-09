@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Extra1</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+</head>
+<body>
+
+<!-- Start of first page -->
+<div data-role="page" id="pagina1" data-title="Titulo de la primera página">
+
+	<div data-role="header">
+		<a href="index.html" data-icon="home">Home</a>
+		<h1>Esta es la página 1</h1>
+		<a href="index.html" data-icon="search">Buscar</a>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<p>Hemos entrado en el html extra que tiene dos pages y estamos por defecto en el primero</p>
+
+		<p>Podemos abrir una html como un dialogo</p>
+		<a href="dialog.html" data-role="button" data-rel="dialog" data-transition="slide" data-inline="true">Abrir un diálogo</a>
+
+		<p>Si quieres puedes ver el segundo page punsando <a href="#pagina2">aqui</a></p>
+
+		<div class="ui-grid-a">
+			<p>Ejemplo de grid</p>
+			<div class="ui-block-a"><strong>Primer bloque</strong> and text inside will wrap</div>
+			<div class="ui-block-b"><strong>Segundo bloque</strong> and text inside will wrap</div>
+			<div class="ui-block-a"><strong>Tercer bloque</strong> and text inside will wrap</div>
+			<div class="ui-block-b"><strong>Cuarto bloque</strong> and text inside will wrap</div>
+			<div class="ui-block-a"><strong>Quinto bloque</strong> and text inside will wrap</div>
+			<div class="ui-block-b"><strong>Sexto bloque</strong> and text inside will wrap</div>
+		</div><!-- /grid-a -->
+
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>Pie de la primera página</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+<!-- Start of second page -->
+<div data-role="page" id="pagina2" data-title="Titulo de la segunda página">
+
+	<div data-role="header">
+		<a href="index.html" data-icon="home">Home</a>
+		<h1>Esta es la página 2</h1>
+		<a href="index.html" data-icon="search">Buscar</a>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<p>Hemos cambiado al segundo page, si quieres podemos volver al primer page en el siguiente enlace</p>
+
+		<p>Podemos abrir un html con una transición</p>
+		<a href="page2.html" data-role="button" data-transition="slide" data-inline="true">Abrir una pagina con una transición</a>
+		<p><a href="#pagina1">Volver al primer page</a></p>
+		<p><a href="index.html">Ir a la página inicial</a></p>
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>Pie de la segunda página</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+</body>
+</html>
