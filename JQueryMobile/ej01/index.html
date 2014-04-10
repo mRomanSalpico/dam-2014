@@ -30,23 +30,22 @@
 			<p>Esta aplicación es un ejercicio de prueba para aprender JQueryMobile<p>
 		</div>
 		<br>
-		<div data-role="panel" id="panel">
-			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete"
-			data-iconpos="notext" class="ui-btn-right">Cerrar</a>
-			<div data-role="navbar" data-iconpos="bottom">
-				<ul>
-					<li><a href="a.html" data-icon="star">One</a></li>
-					<li><a href="b.html" data-icon="delete">Two</a></li>
-				</ul>
-			</div><!-- /navbar -->
-			<p>Esto es el panel que se muestra, aquí estará el menú<p>
-		</div>
 
 	</div><!-- /content -->
+
+	<div data-role="panel" id="panel">
+		<ul data-role="listview">
+			<li><a href="extra1.html" data-ajax="false">Ir a extra1</a></li>
+			<li><a href="page2.html" data-ajax="false">Ir a page2</a></li>
+			<li><a href="extra3.html" data-ajax="false">Ir a extra3</a></li>
+		</ul>
+		<br>
+	</div>
 
 	<div data-role="footer">
 		<h4>Este es el pie de pagina inicial</h4>
 	</div><!-- /footer -->
+<script src="js/main.js"></script>
 </div><!-- /page -->
 
 </body>
