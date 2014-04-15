@@ -1,18 +1,17 @@
 define('Fizz', [],function(){
     'use strict';
 
-var fizz = function(numero){
-    console.log("fizz funcion");
+    var fizz = function(numero){
+        console.log('fizz funcion');
 
-if (!(numero%3)) {
-    return true;
-}
+        if ((numero % 3) === 0){
+            return 'Fizz';
+        }
+        return '';
+    };
 
-    return false;
-};
-
-return {
-    fizz : fizz
-};
+    return {
+        fizz : fizz
+    };
 
 });

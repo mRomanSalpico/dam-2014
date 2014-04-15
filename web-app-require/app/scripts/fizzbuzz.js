@@ -1,27 +1,28 @@
 define('fizzbuzz', ['Fizz','Buzz'],function(Fizz,Buzz){
     'use strict';
 
+    var testNumber = function(num, funciones){
+        var lista =[];
+
+        funciones.forEach(function(funcion) {
+            if (funcion(num).length >0) {
+                lista.push(funcion(num));
+            }
+        });
+
+        if(!lista.length){
+            lista.push(num);
+        }
+
+        return lista.join('');
+    };
+
     var fizzbuzz = function(numero){
-        console.log("fizzbuzz funcion");
 
         var lista=[];
-        var msg='';
+        var funciones =[Fizz.fizz,Buzz.buzz];
         for(var i=1;i<=numero;i++){
-            msg='';
-            if (Fizz.fizz(i)) {
-                msg+='Fizz';
-            }
-            if (Buzz.buzz(i)) {
-                msg+='Buzz';
-            }
-            if (!(Fizz.fizz(i)) && !(Buzz.buzz(i)) ){
-                msg=i;
-            }
-            lista[i-1]=msg;
-
-                console.log("msg");
-                console.log(msg);
-                console.log(lista);
+            lista.push(testNumber(i, funciones));
         }
 
         return lista;

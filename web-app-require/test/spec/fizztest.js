@@ -1,13 +1,12 @@
 /* global describe, it */
-require.config({
-    baseUrl: '../app/scripts',
-    nodeRequire:require
-});
 
 (function () {
     'use strict';
 
-    //  tests.js
+    require.config({
+        baseUrl: '../app/scripts',
+        nodeRequire:require
+    });
 
 
     describe('FizzTest',function(){
@@ -28,13 +27,13 @@ require.config({
 
             it('Should  return  1', function    ()  {
 
-                assert.equal(false, mod.fizz(1));
-                assert.equal(false, mod.fizz(2));
-                assert.equal(true, mod.fizz(3));
-                assert.equal(false, mod.fizz(4));
-                assert.equal(false, mod.fizz(5));
-                assert.equal(true, mod.fizz(6));
-                assert.equal(true, mod.fizz(15));
+                assert.equal('', mod.fizz(1));
+                assert.equal('', mod.fizz(2));
+                assert.equal('Fizz', mod.fizz(3));
+                assert.equal('', mod.fizz(4));
+                assert.equal('', mod.fizz(5));
+                assert.equal('Fizz', mod.fizz(6));
+                assert.equal('Fizz', mod.fizz(15));
 
 
             });
